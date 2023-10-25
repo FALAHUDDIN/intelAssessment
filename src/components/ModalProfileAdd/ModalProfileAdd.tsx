@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { TriggerProfileListRecoil } from "../../recoil/Atoms";
 import { ServiceProfileAdd } from "../../services";

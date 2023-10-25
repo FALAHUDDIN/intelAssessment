@@ -8,6 +8,7 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
+    base: "/vite-deploy/",
     test: {
         globals: true,
         environment: "jsdom",
