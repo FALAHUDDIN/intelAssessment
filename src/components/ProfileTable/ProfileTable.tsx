@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import {
     ProfileListRecoil,
@@ -11,13 +12,13 @@ export default function ProfileTable({
     currentPage,
     setCurrentPage,
 }: any) {
-    const itemPerPage = 5;
-    const totalPages = Math.ceil(showData.length / itemPerPage);
-
+    const [itemPerPage, setItemPerPage] = useState<number>(5);
     const [profileList] = useRecoilState<any>(ProfileListRecoil);
     const [, setTriggerProfileList] = useRecoilState<boolean>(
         TriggerProfileListRecoil
     );
+
+    const totalPages = Math.ceil(showData.length / itemPerPage);
 
     const handleProfileUpdate = (id: string) => {
         setIdProfile(id);
@@ -118,6 +119,39 @@ export default function ProfileTable({
             )}
             <nav aria-label="Page navigation example">
                 <ul className="pagination justify-content-center">
+                    <div className="input">
+                        <button
+                            className="btn btn-light dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            {itemPerPage}
+                        </button>
+                        <ul className="dropdown-menu">
+                            <button
+                                type="button"
+                                className="dropdown-item"
+                                onClick={() => setItemPerPage(5)}
+                            >
+                                5
+                            </button>
+                            <button
+                                type="button"
+                                className="dropdown-item"
+                                onClick={() => setItemPerPage(10)}
+                            >
+                                10
+                            </button>
+                            <button
+                                type="button"
+                                className="dropdown-item"
+                                onClick={() => setItemPerPage(15)}
+                            >
+                                15
+                            </button>
+                        </ul>
+                    </div>
                     <li
                         className={`page-item ${
                             currentPage === 1 ? "disabled" : ""
