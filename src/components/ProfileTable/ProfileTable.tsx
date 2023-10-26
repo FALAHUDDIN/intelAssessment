@@ -40,10 +40,10 @@ export default function ProfileTable({
                 <table className="table table-hover table-striped table-light">
                     <thead>
                         <tr>
-                            <th scope="col">{}</th>
                             <th scope="col">Email</th>
                             <th scope="col">Full Name</th>
                             <th scope="col">Nick Name</th>
+                            <th scope="col">Photo URL</th>
                             <th scope="col">{}</th>
                             <th scope="col">{}</th>
                         </tr>
@@ -65,19 +65,27 @@ export default function ProfileTable({
                                         index < itemPerPage * currentPage
                                     )
                                         return (
-                                            <tr
-                                                className="table-active"
-                                                key={key}
-                                            >
-                                                <th scope="col">{}</th>
-                                                <td>{x.email}</td>
-                                                <td>{x.fullName}</td>
-                                                <td>{x.nickName}</td>
-                                                <td
-                                                    style={{
-                                                        width: "5%",
-                                                    }}
-                                                >
+                                            <tr className="col" key={key}>
+                                                <td className="col-1">
+                                                    {x.email}
+                                                </td>
+                                                <td className="col-9">
+                                                    {x.fullName}
+                                                </td>
+                                                <td className="col-1">
+                                                    {x.nickName}
+                                                </td>
+                                                <td className="col-1 link-primary ">
+                                                    <a
+                                                        className="d-inline-block text-truncate"
+                                                        href={x.profilePhoto}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                    >
+                                                        {x.profilePhoto}
+                                                    </a>
+                                                </td>
+                                                <td className="col-1">
                                                     <button
                                                         type="button"
                                                         className="btn btn-primary"
@@ -92,11 +100,7 @@ export default function ProfileTable({
                                                         Edit
                                                     </button>
                                                 </td>
-                                                <td
-                                                    style={{
-                                                        width: "8%",
-                                                    }}
-                                                >
+                                                <td className="col-1">
                                                     <button
                                                         type="button"
                                                         className="btn btn-danger"

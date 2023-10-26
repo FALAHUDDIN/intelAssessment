@@ -35,6 +35,11 @@ function Record() {
                         .toLowerCase()
                         .includes(searchText.toLowerCase());
                 }
+                if (chooseFilter === "Photo URL") {
+                    return x.profilePhoto
+                        .toLowerCase()
+                        .includes(searchText.toLowerCase());
+                }
                 if (chooseFilter === "All") {
                     return (
                         x.fullName
@@ -43,7 +48,12 @@ function Record() {
                         x.nickName
                             .toLowerCase()
                             .includes(searchText.toLowerCase()) ||
-                        x.email.toLowerCase().includes(searchText.toLowerCase())
+                        x.email
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase()) ||
+                        x.profilePhoto
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase())
                     );
                 }
             });

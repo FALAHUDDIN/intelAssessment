@@ -10,9 +10,10 @@ export default function ModalProfileAdd() {
     const [email, setEmail] = useState<string>("");
     const [fullName, setFullName] = useState<string>("");
     const [nickName, setNickName] = useState<string>("");
+    const [avatar, setAvatar] = useState<string>("");
 
     const handleProfileAdd = async () => {
-        await ServiceProfileAdd(email, fullName, nickName).then(() => {
+        await ServiceProfileAdd(email, fullName, nickName, avatar).then(() => {
             setTriggerProfileList(true);
         });
     };
@@ -66,6 +67,16 @@ export default function ModalProfileAdd() {
                                 aria-label="Nick Name"
                                 aria-describedby="basic-addon1"
                                 onChange={(e) => setNickName(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Avatar"
+                                aria-label="Avatar"
+                                aria-describedby="basic-addon1"
+                                onChange={(e) => setAvatar(e.target.value)}
                             />
                         </div>
                     </div>

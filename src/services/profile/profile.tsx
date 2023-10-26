@@ -21,13 +21,15 @@ export const ServiceProfileList = async () => {
 export const ServiceProfileAdd = async (
     email: string,
     fullName: string,
-    nickName: string
+    nickName: string,
+    profilePhoto: string
 ) => {
     try {
         const resData = await apiClient.post(endpointProfile.PROFILE_ADD.path, {
             fullName,
             nickName,
             email,
+            profilePhoto,
         });
         if (resData) {
             return resData.data;
@@ -41,7 +43,8 @@ export const ServiceProfileUpdate = async (
     idProfile: string,
     email: string,
     fullName: string,
-    nickName: string
+    nickName: string,
+    profilePhoto: string
 ) => {
     try {
         const resData = await apiClient.put(
@@ -50,6 +53,7 @@ export const ServiceProfileUpdate = async (
                 fullName,
                 nickName,
                 email,
+                profilePhoto,
             }
         );
         if (resData) {

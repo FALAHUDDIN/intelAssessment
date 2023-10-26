@@ -58,6 +58,13 @@ export default function ProfileControl({
                     >
                         Nick Name
                     </button>
+                    <button
+                        type="button"
+                        className="dropdown-item"
+                        onClick={() => setChooseFilter("Photo URL")}
+                    >
+                        Photo URL
+                    </button>
                 </ul>
             </div>
             <button

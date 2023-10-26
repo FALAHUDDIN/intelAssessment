@@ -14,6 +14,7 @@ export default function ModalProfileUpdate({ idProfile }: any) {
     const [email, setEmail] = useState<string>("");
     const [fullName, setFullName] = useState<string>("");
     const [nickName, setNickName] = useState<string>("");
+    const [avatar, setAvatar] = useState<string>("");
 
     useEffect(() => {
         setEmail(
@@ -28,15 +29,24 @@ export default function ModalProfileUpdate({ idProfile }: any) {
             profileList.length !== undefined &&
                 profileList.filter((x: any) => x.id === idProfile)[0]?.nickName
         );
+        setAvatar(
+            profileList.length !== undefined &&
+                profileList.filter((x: any) => x.id === idProfile)[0]
+                    ?.profilePhoto
+        );
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idProfile]);
 
     const handleProfileUpdate = async () => {
-        await ServiceProfileUpdate(idProfile, email, fullName, nickName).then(
-            () => {
-                setTriggerProfileList(true);
-            }
-        );
+        await ServiceProfileUpdate(
+            idProfile,
+            email,
+            fullName,
+            nickName,
+            avatar
+        ).then(() => {
+            setTriggerProfileList(true);
+        });
     };
 
     return (
@@ -91,6 +101,17 @@ export default function ModalProfileUpdate({ idProfile }: any) {
                                 aria-describedby="basic-addon1"
                                 value={nickName}
                                 onChange={(e) => setNickName(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Avatar"
+                                aria-label="Avatar"
+                                aria-describedby="basic-addon1"
+                                value={avatar}
+                                onChange={(e) => setAvatar(e.target.value)}
                             />
                         </div>
                     </div>

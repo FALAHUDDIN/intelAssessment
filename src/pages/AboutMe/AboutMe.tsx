@@ -34,7 +34,7 @@ function AboutMe() {
                         <p className="fs-6 fw-bolder ms-2">Falah</p>
                     </div>
                     <div>Birthday</div>
-                    <div>Lorem ipsum dolor sit amet, </div>
+                    <div>20 June 1994</div>
                     <div>Hobbies</div>
                     <div>
                         in est vel sem interdum posuere. Phasellus ultrices,
