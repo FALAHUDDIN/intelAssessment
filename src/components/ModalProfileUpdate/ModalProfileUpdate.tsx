@@ -5,9 +5,14 @@ import {
     TriggerProfileListRecoil,
 } from "../../recoil/Atoms";
 import { ServiceProfileUpdate } from "../../services";
+import { IProfile } from "../../interfaces/interface";
 
-export default function ModalProfileUpdate({ idProfile }: any) {
-    const [profileList] = useRecoilState<any>(ProfileListRecoil);
+export interface IProps {
+    idProfile: string;
+}
+
+export default function ModalProfileUpdate({ idProfile }: IProps) {
+    const [profileList] = useRecoilState<IProfile[]>(ProfileListRecoil);
     const [, setTriggerProfileList] = useRecoilState<boolean>(
         TriggerProfileListRecoil
     );
@@ -17,23 +22,24 @@ export default function ModalProfileUpdate({ idProfile }: any) {
     const [avatar, setAvatar] = useState<string>("");
 
     useEffect(() => {
-        setEmail(
-            profileList.length !== undefined &&
-                profileList.filter((x: any) => x.id === idProfile)[0]?.email
-        );
-        setFullName(
-            profileList.length !== undefined &&
-                profileList.filter((x: any) => x.id === idProfile)[0]?.fullName
-        );
-        setNickName(
-            profileList.length !== undefined &&
-                profileList.filter((x: any) => x.id === idProfile)[0]?.nickName
-        );
-        setAvatar(
-            profileList.length !== undefined &&
-                profileList.filter((x: any) => x.id === idProfile)[0]
+        if (profileList) {
+            setEmail(
+                profileList.filter((x: IProfile) => x.id === idProfile)[0]
+                    ?.email
+            );
+            setFullName(
+                profileList.filter((x: IProfile) => x.id === idProfile)[0]
+                    ?.fullName
+            );
+            setNickName(
+                profileList.filter((x: IProfile) => x.id === idProfile)[0]
+                    ?.nickName
+            );
+            setAvatar(
+                profileList.filter((x: IProfile) => x.id === idProfile)[0]
                     ?.profilePhoto
-        );
+            );
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idProfile]);
 
@@ -77,7 +83,7 @@ export default function ModalProfileUpdate({ idProfile }: any) {
                                 placeholder="Email"
                                 aria-label="Email"
                                 aria-describedby="basic-addon1"
-                                value={email}
+                                value={email || ""}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -88,7 +94,7 @@ export default function ModalProfileUpdate({ idProfile }: any) {
                                 placeholder="Full Name"
                                 aria-label="Full Name"
                                 aria-describedby="basic-addon1"
-                                value={fullName}
+                                value={fullName || ""}
                                 onChange={(e) => setFullName(e.target.value)}
                             />
                         </div>
@@ -99,7 +105,7 @@ export default function ModalProfileUpdate({ idProfile }: any) {
                                 placeholder="Nick Name"
                                 aria-label="Nick Name"
                                 aria-describedby="basic-addon1"
-                                value={nickName}
+                                value={nickName || ""}
                                 onChange={(e) => setNickName(e.target.value)}
                             />
                         </div>
@@ -110,7 +116,7 @@ export default function ModalProfileUpdate({ idProfile }: any) {
                                 placeholder="Avatar"
                                 aria-label="Avatar"
                                 aria-describedby="basic-addon1"
-                                value={avatar}
+                                value={avatar || ""}
                                 onChange={(e) => setAvatar(e.target.value)}
                             />
                         </div>

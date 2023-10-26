@@ -13,9 +13,31 @@ export const ServiceProfileList = async () => {
         if (resData) {
             return resData.data;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log("error");
     }
+    return null;
+};
+
+export const ServiceProfileSpecify = async (idProfile: string) => {
+    try {
+        const resData = await apiClient.get(
+            endpointProfile.PROFILE_SPECIFY.path,
+            {
+                params: {
+                    idProfile,
+                },
+            }
+        );
+        if (resData) {
+            return resData.data;
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        console.log("error");
+    }
+    return null;
 };
 
 export const ServiceProfileAdd = async (
@@ -34,9 +56,11 @@ export const ServiceProfileAdd = async (
         if (resData) {
             return resData.data;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log("error");
     }
+    return null;
 };
 
 export const ServiceProfileUpdate = async (
@@ -59,9 +83,11 @@ export const ServiceProfileUpdate = async (
         if (resData) {
             return resData.data;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log("error");
     }
+    return null;
 };
 
 export const ServiceProfileDelete = async (idProfile: string) => {
@@ -72,7 +98,9 @@ export const ServiceProfileDelete = async (idProfile: string) => {
         if (resData) {
             return resData.data;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log("error");
     }
+    return null;
 };

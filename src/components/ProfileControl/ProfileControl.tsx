@@ -1,10 +1,16 @@
+export interface IProps {
+    setSearchText: React.Dispatch<React.SetStateAction<string>>;
+    chooseFilter: string;
+    setChooseFilter: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export default function ProfileControl({
     setSearchText,
     chooseFilter,
     setChooseFilter,
-}: any) {
+}: IProps) {
     return (
-        <div className="ms-3" style={{ width: "30%" }}>
+        <div className="ms-3">
             <div className="input-group mb-3">
                 <span
                     className="input-group-text"
@@ -69,7 +75,7 @@ export default function ProfileControl({
             </div>
             <button
                 type="button"
-                className="btn btn-success float-end px-4"
+                className="btn btn-success float-end px-4 mb-3"
                 data-bs-toggle="modal"
                 data-bs-target="#modalProfileAdd"
             >
