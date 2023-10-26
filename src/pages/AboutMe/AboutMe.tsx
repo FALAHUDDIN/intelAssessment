@@ -461,7 +461,7 @@ function AboutMe() {
                         </button>
                     </div>
                 </div>
-                <div className="d-flex flex-row gap-3">
+                <div className="gallery">
                     {imageSpecify &&
                         imageSpecify.length !== undefined &&
                         Object.values(imageSpecify)[0] &&
@@ -470,21 +470,11 @@ function AboutMe() {
                             return (
                                 <div
                                     key={key}
-                                    className="shadow"
+                                    className="galleryCard"
                                     style={{
-                                        width: "20rem",
-                                        borderRadius: "20px",
-                                        marginTop: "2rem",
-                                        overflow: "hidden",
-                                        alignSelf: "center",
+                                        backgroundImage: `url(${x.imagePath})`,
                                     }}
-                                >
-                                    <img
-                                        style={{ width: "100%" }}
-                                        src={x.imagePath}
-                                        alt={x.description}
-                                    />
-                                </div>
+                                />
                             );
                             return null;
                         })}
