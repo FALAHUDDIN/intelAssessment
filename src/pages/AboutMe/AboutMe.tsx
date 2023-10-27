@@ -160,7 +160,7 @@ function AboutMe() {
                                     })}
                             </div>
                             <div className="pt-3 fs-6 fw-bolder">Hobby</div>
-                            <div className="pt-3 fs-6 fw-bolder">
+                            <div>
                                 {detailSpecify &&
                                     detailSpecify.length !== undefined &&
                                     detailSpecify.hobby}
