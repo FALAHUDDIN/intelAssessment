@@ -159,6 +159,7 @@ function AboutMe() {
                                         day: "numeric",
                                     })}
                             </div>
+                            <div className="pt-3 fs-6 fw-bolder">Hobby</div>
                             <div className="pt-3 fs-6 fw-bolder">
                                 {detailSpecify &&
                                     detailSpecify.length !== undefined &&
@@ -248,7 +249,7 @@ function AboutMe() {
                                                     <div>
                                                         {x.jobDescription}
                                                     </div>
-                                                    <div className="pt-3 fs-6 fw-bolder">
+                                                    {/* <div className="pt-3 fs-6 fw-bolder">
                                                         Start Date
                                                     </div>
                                                     <div>
@@ -277,7 +278,7 @@ function AboutMe() {
                                                                 day: "numeric",
                                                             }
                                                         )}
-                                                    </div>
+                                                    </div> */}
                                                     <div>
                                                         <button
                                                             className={`btn btn-light me-2 ${
@@ -357,7 +358,7 @@ function AboutMe() {
                                                         Field of Study
                                                     </div>
                                                     <div>{x.studyField}</div>
-                                                    <div className="pt-3 fs-6 fw-bolder">
+                                                    {/* <div className="pt-3 fs-6 fw-bolder">
                                                         Start Date
                                                     </div>
                                                     <div>
@@ -386,7 +387,7 @@ function AboutMe() {
                                                                 day: "numeric",
                                                             }
                                                         )}
-                                                    </div>
+                                                    </div> */}
                                                     <div>
                                                         <button
                                                             className={`btn btn-light me-2 ${
