@@ -399,7 +399,7 @@ function AboutMe() {
                                                                 width: "5rem",
                                                             }}
                                                             onClick={() =>
-                                                                setJobCard(
+                                                                setEduCard(
                                                                     key - 1
                                                                 )
                                                             }
