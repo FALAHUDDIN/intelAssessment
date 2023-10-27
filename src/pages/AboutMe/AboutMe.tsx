@@ -57,7 +57,7 @@ function AboutMe() {
                     {profileSpecify && profileSpecify.profilePhoto ? (
                         <img
                             className="shadow avatar"
-                            alt="avatar"
+                            alt=""
                             src={profileSpecify && profileSpecify.profilePhoto}
                         />
                     ) : (

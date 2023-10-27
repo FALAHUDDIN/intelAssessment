@@ -137,7 +137,7 @@ function Record() {
     }, [profileList, searchText, chooseFilter]);
 
     const handleAboutMeRedirect = () => {
-        window.open("#/about-me");
+        window.location.hash = "/about-me";
     };
 
     return (
